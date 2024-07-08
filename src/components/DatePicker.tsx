@@ -11,17 +11,21 @@ interface FieldValues {
   endDate: string;
 }
 
+interface DatePickerProps {
+  isFetching: boolean;
+  control: Control<FieldValues>;
+  errorsStart: string | undefined;
+  errorsEnd: string | undefined;
+  errorMessages: string[];
+}
+
 function DatePicker({
   isFetching,
   control,
   errorsStart,
   errorsEnd,
-}: {
-  isFetching: boolean;
-  control: Control<FieldValues>;
-  errorsStart: string | undefined;
-  errorsEnd: string | undefined;
-}) {
+  errorMessages,
+}: DatePickerProps) {
   return (
     <DatePickerWrapper>
       <InputWrapper>
@@ -82,6 +86,14 @@ function DatePicker({
           )}
         />
       </InputWrapper>
+
+      {errorMessages.length > 0 && (
+        <div style={{ color: "red", marginTop: "10px" }}>
+          {errorMessages.map((message, index) => (
+            <p key={index}>{message}</p>
+          ))}
+        </div>
+      )}
 
       <Button
         variant="contained"
