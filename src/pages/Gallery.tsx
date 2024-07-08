@@ -22,7 +22,7 @@ const DateInfo = styled.div`
   max-width: 90%;
   letter-spacing: 0.8px;
   color: white;
-  background-color: black;
+  background-color: #1976d2;
   @media (min-width: 768px) {
     min-width: 700px;
   }
