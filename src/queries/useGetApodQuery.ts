@@ -21,7 +21,8 @@ export interface IParamsType {
 const useGetApodQuery = (params: IParamsType) => {
   return useQuery<IAppodListResponse, Error>({
     queryFn: () => fetchApod(params),
-    queryKey: ["useGetApodQuery"],
+    queryKey: ["useGetApodQuery", params],
+    staleTime: 5 * 60 * 1000,
   });
 };
 
