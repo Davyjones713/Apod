@@ -55,7 +55,7 @@ function Gallery() {
     <>
       <DateWrapper>
         <DateInfo>
-          Showing Data from ${startDate} to ${getCurrentDate()}
+          Showing Data from ${startDate} to ${getYesterdayDate()}
         </DateInfo>
       </DateWrapper>
       {Array.isArray(data) && data.map(renderApod)}
