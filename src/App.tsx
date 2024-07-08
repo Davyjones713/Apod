@@ -18,7 +18,7 @@ function App() {
     },
   });
 
-  const { refetch, isFetching, data, isLoading } = useSearchApodQuery({
+  const { refetch, isFetching, data, isLoading, error } = useSearchApodQuery({
     startDate: watch("startDate"),
     endDate: watch("endDate"),
   });
@@ -37,6 +37,7 @@ function App() {
           errorsStart={errors?.startDate?.message}
           errorsEnd={errors?.endDate?.message}
           isFetching={isFetching}
+          errorMessages={error ? [error?.response?.data?.msg] : []}
         />
       </form>
       {Array.isArray(data) ? data.map(renderApod) : data && renderApod(data)}
