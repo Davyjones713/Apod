@@ -29,13 +29,15 @@ const DateInfo = styled.div`
 `;
 
 function Gallery() {
-  const startDate = "2024-07-01";
-  function getCurrentDate() {
+  const startDate = "2024-06-30";
+  function getYesterdayDate() {
     const currentDate = new Date();
+    const yesterday = new Date(currentDate);
+    yesterday.setDate(currentDate.getDate() - 1);
 
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, "0");
-    const day = String(currentDate.getDate()).padStart(2, "0");
+    const year = yesterday.getFullYear();
+    const month = String(yesterday.getMonth() + 1).padStart(2, "0");
+    const day = String(yesterday.getDate()).padStart(2, "0");
 
     const formattedDate = `${year}-${month}-${day}`;
 
@@ -44,7 +46,7 @@ function Gallery() {
 
   const { data, isFetching } = useGetApodQuery({
     startDate,
-    endDate: getCurrentDate(),
+    endDate: getYesterdayDate(),
   });
 
   if (isFetching) return <Spinner />;
