@@ -18,12 +18,11 @@ export interface IParamsType {
   endDate?: string | null;
 }
 
-const useGetApodQuery = (params: IParamsType) => {
+const useSearchApodQuery = (params: IParamsType) => {
   return useQuery<IAppodListResponse, Error>({
     queryFn: () => fetchApod(params),
-    queryKey: ["useGetApodQuery", params],
-    staleTime: 10000,
+    queryKey: ["useGetApodQuery"],
   });
 };
 
-export default useGetApodQuery;
+export default useSearchApodQuery;

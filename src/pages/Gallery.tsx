@@ -7,9 +7,25 @@ const DateWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 15px;
+  margin-top: 25px;
   font-size: 36px;
-  color: green;
+`;
+
+const DateInfo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 22px;
+  border: 1px solid black;
+  border-radius: 10px;
+  max-width: 90%;
+  letter-spacing: 0.8px;
+  color: white;
+  background-color: black;
+  @media (min-width: 768px) {
+    min-width: 700px;
+  }
 `;
 
 function Gallery() {
@@ -36,7 +52,9 @@ function Gallery() {
   return (
     <>
       <DateWrapper>
-        {`Showing Data from ${startDate} to ${getCurrentDate()}`}
+        <DateInfo>
+          Showing Data from ${startDate} to ${getCurrentDate()}
+        </DateInfo>
       </DateWrapper>
       {Array.isArray(data) && data.map(renderApod)}
     </>
