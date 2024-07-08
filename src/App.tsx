@@ -4,6 +4,7 @@ import "./App.css";
 import Spinner from "./components/Spinner";
 import { useForm } from "react-hook-form";
 import useSearchApodQuery from "./queries/useSearchApodQuery";
+import { isAxiosError } from "axios";
 
 function App() {
   const {
@@ -37,7 +38,13 @@ function App() {
           errorsStart={errors?.startDate?.message}
           errorsEnd={errors?.endDate?.message}
           isFetching={isFetching}
-          errorMessages={error ? [error?.response?.data?.msg] : []}
+          errorMessages={
+            error
+              ? isAxiosError(error)
+                ? [error.response?.data?.msg]
+                : []
+              : []
+          }
         />
       </form>
       {Array.isArray(data) ? data.map(renderApod) : data && renderApod(data)}
