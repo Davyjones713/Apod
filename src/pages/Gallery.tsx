@@ -29,7 +29,7 @@ const DateInfo = styled.div`
 `;
 
 function Gallery() {
-  const startDate = "2024-06-30";
+  const startDate = "2024-07-01";
   function getYesterdayDate() {
     const currentDate = new Date();
     const yesterday = new Date(currentDate);
