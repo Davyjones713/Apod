@@ -40,7 +40,7 @@ function DatePicker({
           }}
           render={({ field: { onChange, value } }) => (
             <TextField
-              label="YYYY/MM/DD"
+              label="YYYY-MM-DD"
               variant="standard"
               required
               type="text"
@@ -70,12 +70,11 @@ function DatePicker({
           render={({ field: { onChange, value } }) => (
             <TextField
               variant="standard"
-              label="YYYY/MM/DD"
+              label="YYYY-MM-DD"
               required
               type="text"
               id="endDate"
               value={value || ""}
-              placeholder="YY-MM-DD"
               onChange={onChange}
               error={Boolean(errorsEnd)}
               helperText={errorsEnd}
