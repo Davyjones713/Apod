@@ -76,6 +76,7 @@ function DatePicker({
               required
               type="date"
               id="endDate"
+             style={{  width: "100%" }}
               value={value || ""}
               onChange={onChange}
               error={Boolean(errorsEnd)}
