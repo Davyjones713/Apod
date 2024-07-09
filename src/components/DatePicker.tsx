@@ -26,6 +26,9 @@ function DatePicker({
   errorsEnd,
   errorMessages,
 }: DatePickerProps) {
+   const [startDate, setStartDate] = useState<string | null>(null);
+  const today = new Date().toISOString().split("T")[0]
+  
   return (
     <DatePickerWrapper>
       <InputWrapper>
@@ -49,7 +52,11 @@ function DatePicker({
               type="date"
               id="startDate"
               value={value || ""}
-              onChange={onChange}
+              onChange={(e) => {
+              onChange(e);
+              setStartDate(e.target.value);
+              }}
+              inputProps={{ max: today }}
               style={{ marginBottom: "20px", width: "100%" }}
               helperText={errorsStart || ""}
               error={Boolean(errorsStart)}
@@ -79,6 +86,10 @@ function DatePicker({
               style={{  width: "100%" }}
               value={value || ""}
               onChange={onChange}
+              inputProps={{
+                min: startDate || "", 
+                max: today, 
+              }}
               error={Boolean(errorsEnd)}
               helperText={errorsEnd}
             />
