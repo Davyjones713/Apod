@@ -50,7 +50,6 @@ function DatePicker({
               id="startDate"
               value={value || ""}
               onChange={onChange}
-              placeholder='YY-MM-DD'
               style={{ marginBottom: "20px", width: "100%" }}
               helperText={errorsStart || ""}
               error={Boolean(errorsStart)}
@@ -77,7 +76,6 @@ function DatePicker({
               required
               type="date"
               id="endDate"
-              placeholder='YY-MM-DD'
               style={{  width: "100%" }}
               value={value || ""}
               onChange={onChange}
