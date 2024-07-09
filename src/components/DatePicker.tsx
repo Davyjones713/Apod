@@ -37,10 +37,6 @@ function DatePicker({
           name="startDate"
           rules={{
             required: "Start Date is required",
-            pattern: {
-              value: /^\d{4}-\d{2}-\d{2}$/,
-              message: "Invalid date format (YYYY-MM-DD)",
-            },
           }}
           render={({ field: { onChange, value } }) => (
             <TextField
@@ -65,10 +61,6 @@ function DatePicker({
           name="endDate"
           rules={{
             required: "End Date is required",
-            pattern: {
-              value: /^\d{4}-\d{2}-\d{2}$/,
-              message: "Invalid date format (YYYY-MM-DD)",
-            },
           }}
           render={({ field: { onChange, value } }) => (
             <TextField
