@@ -81,6 +81,7 @@ function DatePicker({
             <TextField
               variant="standard"
               required
+              disabled={!startDate}
               type="date"
               id="endDate"
               style={{  width: "100%" }}
