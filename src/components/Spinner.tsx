@@ -11,7 +11,7 @@ const SpinnerWrapper = styled.div`
 `;
 
 const LoadingText = styled.p`
-  color: green;
+  color: blue;
   font-size: 22px;
   font-weight: 700;
   line-height: 1.4rem;
@@ -21,7 +21,7 @@ function Spinner() {
   return (
     <SpinnerWrapper>
       <LoadingText>Data Loading</LoadingText>
-      <PropagateLoader color="green" />
+      <PropagateLoader color="blue" />
     </SpinnerWrapper>
   );
 }
